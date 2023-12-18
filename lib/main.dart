@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:project1/src/core/models/app_router.dart';
+import 'package:project1/src/core/models/bikepeople.dart';
+import 'package:project1/src/features/screens/details.dart';
 import 'package:project1/src/features/screens/home_screen.dart';
 import 'package:project1/src/features/screens/landing_screen.dart';
 import 'package:project1/src/features/screens/login_screen.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginScreen(),
         '/home': (context) => HomeScreen(),
+        '/details': (context) => DetailsScreen(),
         '/orders': (context) => OrdersScreen(),
         '/tracker': (context) => OrdersTracking(),
       },

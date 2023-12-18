@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project1/src/features/screens/details.dart';
 
 import '../../core/models/bikepeople.dart';
 import 'package:http/http.dart';
@@ -13,7 +14,9 @@ import '../widgets/slider.dart';
 import '../widgets/your_orders_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
