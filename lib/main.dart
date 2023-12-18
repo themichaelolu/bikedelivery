@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:project1/models/app_router.dart';
-import 'package:project1/screens/home_screen.dart';
-import 'package:project1/screens/landing_screen.dart';
-import 'package:project1/screens/login_screen.dart';
-import 'package:project1/screens/orders_screen.dart';
-import 'package:project1/screens/orders_tracking.dart';
-import 'package:project1/widgets/trackwidget.dart';
+import 'package:project1/src/core/models/app_router.dart';
+import 'package:project1/src/features/screens/home_screen.dart';
+import 'package:project1/src/features/screens/landing_screen.dart';
+import 'package:project1/src/features/screens/login_screen.dart';
+import 'package:project1/src/features/screens/orders_screen.dart';
+import 'package:project1/src/features/screens/orders_tracking.dart';
+import 'package:project1/src/features/widgets/trackwidget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {

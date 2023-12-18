@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:project1/models/recetorders.dart';
+import 'package:project1/src/core/models/recetorders.dart';
 
 class RecentOrders extends StatelessWidget {
   final RecentOrdersModel recentOrders;

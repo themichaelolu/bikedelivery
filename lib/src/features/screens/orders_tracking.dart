@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:project1/models/recetorders.dart';
-import 'package:project1/widgets/history_widget.dart';
+import 'package:project1/src/core/models/recetorders.dart';
+import 'package:project1/src/features/widgets/history_widget.dart';
 
 import '../widgets/ordersnumber.dart';
 import '../widgets/proddeliverydetails.dart';

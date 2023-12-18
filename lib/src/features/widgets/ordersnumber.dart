@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/recetorders.dart';
+import '../../core/models/recetorders.dart';
 
 class OrdersNumber extends StatelessWidget {
   const OrdersNumber({
