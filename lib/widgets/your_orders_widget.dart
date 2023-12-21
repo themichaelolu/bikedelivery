@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class YourOrdersWidget extends StatelessWidget {
   const YourOrdersWidget({super.key});
@@ -32,7 +33,8 @@ class YourOrdersWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/orders');
+              // Navigator.pushNamed(context, '/orders');
+              context.go('/orders');
             },
             child: Container(
               width: 183,
