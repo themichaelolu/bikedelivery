@@ -2,10 +2,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/widgets/recentrorders.dart';
-import 'package:project1/widgets/trackwidget.dart';
+import 'package:project1/src/features/widgets/recentrorders.dart';
+import 'package:project1/src/features/widgets/trackwidget.dart';
 
-import '../models/recetorders.dart';
+import '../../core/models/recetorders.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
