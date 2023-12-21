@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/src/features/screens/details.dart';
+import 'package:project1/src/features/widgets/drawer_widget.dart';
+import 'package:project1/src/features/widgets/top_widget.dart';
 
 import '../../core/models/bikepeople.dart';
 import 'package:http/http.dart';
@@ -68,26 +70,21 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: DrawerWidget(),
       resizeToAvoidBottomInset: false,
-      drawer: Drawer(),
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              CupertinoIcons.bell_fill,
-            ),
-          ),
-        ],
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          TopWidget(scaffoldKey: _scaffoldKey),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 30,
+            ),
             child: Text(
               'Hello, Good Morning!',
               textAlign: TextAlign.left,

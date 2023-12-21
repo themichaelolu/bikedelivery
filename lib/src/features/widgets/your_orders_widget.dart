@@ -33,8 +33,8 @@ class YourOrdersWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // Navigator.pushNamed(context, '/orders');
-              context.go('/orders');
+              Navigator.pushNamed(context, '/orders');
+              // context.go('/orders');
             },
             child: Container(
               width: 183,

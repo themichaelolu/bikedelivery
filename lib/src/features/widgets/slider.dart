@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart';
 import '../../core/models/bikepeople.dart';
 
@@ -45,8 +46,13 @@ class _SliderRState extends State<SliderR> {
           } else {
             return InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/details',
-                    arguments: widget.bikePeople);
+                // context.goNamed('/details');
+
+                Navigator.pushNamed(
+                  context,
+                  '/details',
+                  arguments: widget.bikePeople,
+                );
               },
               child: Container(
                 width: 255,
@@ -54,7 +60,6 @@ class _SliderRState extends State<SliderR> {
                 decoration: BoxDecoration(
                   color: Color(0xFFF1F6FB),
                   borderRadius: BorderRadius.circular(32),
-                  border: Border.all(color: Colors.grey),
                 ),
                 child: Container(
                   width: 199,

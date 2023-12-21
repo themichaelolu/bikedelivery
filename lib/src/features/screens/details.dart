@@ -72,10 +72,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       child: Text(
                         data.name,
                         style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                            color: Colors.white,
+                            overflow: TextOverflow.ellipsis,
+                            fontFamily: 'Inter'),
                       ),
                     ),
                   ),
@@ -103,7 +102,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   title: Text(
                     data.body,
                     style: TextStyle(
-                        fontSize: 13, overflow: TextOverflow.ellipsis),
+                        fontSize: 13,
+                        overflow: TextOverflow.ellipsis,
+                        fontFamily: 'Inter'),
                   ),
                 ),
               ],
@@ -128,9 +129,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ListTile(
                   title: Text(
                     'fdvdbkj vevhvsj s veiv jfh svbfffsbsbsvhebs  vsbvbvsbvsvbfv vsbvvbsbvsbvsbvsvvb vbsjkvbsvsvbwfbsjvbvsv  svbsjbvsvsv skvbsvs vskvsv ksv svksjvbks svksv v',
-                    style: TextStyle(
-                      fontSize: 13,
-                    ),
+                    style: TextStyle(fontSize: 13, fontFamily: 'Inter'),
                   ),
                 ),
               ],

@@ -29,9 +29,9 @@ class BottomNavBar extends StatelessWidget {
                   label: Text(
                     'ADD TO CART',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Inter'),
                   ),
                 ),
               ),
@@ -55,9 +55,9 @@ class BottomNavBar extends StatelessWidget {
                   label: Text(
                     'ADD TO WISHLIST',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        color: Colors.black,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Inter'),
                   ),
                 ),
               ),
