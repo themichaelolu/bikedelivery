@@ -7,9 +7,11 @@ import 'package:project1/src/features/widgets/bottomnavbar.dart';
 import 'package:project1/src/features/widgets/slider.dart';
 
 class DetailsScreen extends StatefulWidget {
+  final BikePeople? bikeData;
   const DetailsScreen({
-    super.key,
-  });
+    Key? key,
+    this.bikeData,
+  }) : super(key: key);
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -18,13 +20,13 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final BikePeople data =
-        ModalRoute.of(context)!.settings.arguments as BikePeople;
+    // final BikePeople data =
+    //     ModalRoute.of(context)!.settings.arguments as BikePeople;
     return Scaffold(
         bottomNavigationBar: BottomNavBar(),
         appBar: AppBar(
           title: Text(
-            data.name,
+            widget.bikeData!.name,
             style: const TextStyle(
               color: Color(0xFF092C4C),
               fontSize: 18,
@@ -45,7 +47,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               enlargeCenterPage: true,
             ),
             items: [
-              SliderR(bikePeople: data),
+              SliderR(bikePeople: widget.bikeData!),
             ],
           ),
           Padding(
@@ -70,7 +72,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Center(
                       child: Text(
-                        data.name,
+                        widget.bikeData!.name,
                         style: const TextStyle(
                             color: Colors.white,
                             overflow: TextOverflow.ellipsis,
@@ -100,7 +102,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               children: [
                 ListTile(
                   title: Text(
-                    data.body,
+                    widget.bikeData!.body,
                     style: TextStyle(
                         fontSize: 13,
                         overflow: TextOverflow.ellipsis,

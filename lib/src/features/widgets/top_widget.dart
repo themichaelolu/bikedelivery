@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class TopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 35),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -32,11 +34,16 @@ class TopWidget extends StatelessWidget {
                         ),
                         fit: BoxFit.fill)),
               )),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              CupertinoIcons.bell_fill,
+          Container(
+            height: 40,
+            width: 40,
+            decoration: ShapeDecoration(
+              color: Color(0xFFF1F6FB),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
             ),
+            child: Image(image: AssetImage('assets/images/bell.png')),
           ),
         ],
       ),

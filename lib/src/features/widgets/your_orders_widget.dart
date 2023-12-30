@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,8 +34,7 @@ class YourOrdersWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushNamed(context, '/orders');
-              // context.go('/orders');
+              context.push('/orders');
             },
             child: Container(
               width: 183,
@@ -54,14 +54,13 @@ class YourOrdersWidget extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,
-                      fontWeight: FontWeight.w600,
                       height: 0.12,
                       letterSpacing: 0.50,
                       fontFamily: 'Inter',
                     ),
                   ),
                   Icon(
-                    Icons.arrow_forward_outlined,
+                    CupertinoIcons.arrow_right,
                     color: Colors.white,
                   ),
                 ],

@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/src/features/screens/details.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:project1/src/features/widgets/drawer_widget.dart';
 import 'package:project1/src/features/widgets/top_widget.dart';
 
@@ -27,6 +28,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<BikePeople> _data = [];
 
+  @riverpod
   Future<List<BikePeople>> getData() async {
     try {
       final response = await get(
@@ -58,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _fetchDataFromApi();
   }
 
+  @riverpod
   Future<void> _fetchDataFromApi() async {
     try {
       List<BikePeople> data = await getData();
@@ -83,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
           TopWidget(scaffoldKey: _scaffoldKey),
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 30,
+              horizontal: 20,
             ),
             child: Text(
               'Hello, Good Morning!',
@@ -98,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
           _data.isEmpty
               ? Center(
@@ -110,9 +113,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: CarouselSlider(
                     options: CarouselOptions(
                       aspectRatio: 1.5,
-                      enlargeCenterPage: true,
+                      // enlargeCenterPage: true,
                       enableInfiniteScroll: false,
-                      initialPage: 0,
+                      initialPage: 2,
                       viewportFraction: 0.7,
                     ),
                     items: _data
@@ -121,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           YourOrdersWidget(),
           Row(

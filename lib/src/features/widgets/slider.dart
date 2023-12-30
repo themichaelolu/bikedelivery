@@ -5,7 +5,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../core/models/bikepeople.dart';
+import '../../core/models/routes.dart';
 
 class SliderR extends StatefulWidget {
   final BikePeople bikePeople;
@@ -46,13 +48,17 @@ class _SliderRState extends State<SliderR> {
           } else {
             return InkWell(
               onTap: () {
-                // context.goNamed('/details');
-
-                Navigator.pushNamed(
-                  context,
-                  '/details',
-                  arguments: widget.bikePeople,
+                context.pushNamed(
+                  'details',
+                  // PageRoutes.details.name,
+                  extra: widget.bikePeople,
                 );
+
+                // Navigator.pushNamed(
+                //   context,
+                //   '/details',
+                //   arguments: widget.bikePeople,
+                // );
               },
               child: Container(
                 width: 255,
@@ -69,8 +75,12 @@ class _SliderRState extends State<SliderR> {
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(
                       children: <Widget>[
-                        Image.asset('assets/images/bike.png',
-                            fit: BoxFit.cover, width: 1000.0),
+                        Center(
+                          child: Image.asset(
+                            'assets/images/bike.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         Positioned(
                           bottom: 0.0,
                           left: 0.0,

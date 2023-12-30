@@ -7,15 +7,19 @@ import 'package:project1/src/features/widgets/history_widget.dart';
 import '../widgets/ordersnumber.dart';
 import '../widgets/proddeliverydetails.dart';
 
-class OrdersTracking extends StatelessWidget {
-  const OrdersTracking({
-    super.key,
-  });
+class OrdersTracking extends StatefulWidget {
+  final RecentOrdersModel? tracker;
+  const OrdersTracking({super.key, required this.tracker});
 
   @override
+  State<OrdersTracking> createState() => _OrdersTrackingState();
+}
+
+class _OrdersTrackingState extends State<OrdersTracking> {
+  @override
   Widget build(BuildContext context) {
-    final data =
-        ModalRoute.of(context)!.settings.arguments as RecentOrdersModel;
+    // final data =
+    //     ModalRoute.of(context)!.settings.arguments as RecentOrdersModel;
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -33,7 +37,7 @@ class OrdersTracking extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              OrdersNumber(data: data),
+              OrdersNumber(data: widget.tracker!),
               SizedBox(
                 height: 10,
               ),

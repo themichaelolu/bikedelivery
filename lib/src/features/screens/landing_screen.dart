@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:project1/src/features/widgets/login_widget.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -119,7 +120,8 @@ class LandingScreen extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/login');
+                // Navigator.pushNamed(context, '/login');
+                context.push('/login');
               },
               child: Container(
                 width: 327,

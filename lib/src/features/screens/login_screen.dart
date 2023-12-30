@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../core/models/routes.dart';
 import '../widgets/login_widget.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -75,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                   }
 
                   if (_isValidData()) {
-                    Navigator.pushReplacementNamed(context, '/home');
+                    context.pushReplacement('/a');
                   } else {
                     showDialog(
                       context: context,
