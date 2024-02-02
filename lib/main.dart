@@ -1,41 +1,52 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:project1/models/app_router.dart';
-import 'package:project1/screens/home_screen.dart';
-import 'package:project1/screens/landing_screen.dart';
-import 'package:project1/screens/login_screen.dart';
-import 'package:project1/screens/orders_screen.dart';
-import 'package:project1/screens/orders_tracking.dart';
-import 'package:project1/widgets/trackwidget.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:path/path.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:project1/src/features/widgets/gorouter_provider.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sqflite/sqflite.dart';
+
+import 'src/core/models/profile.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    ProviderScope(child: MyApp()),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // final goRouter = ref.watch(goRouterProvider);
-    return MaterialApp(
-      // routerConfig: goRouter,
-      theme: ThemeData(
-        primaryColor: Color(0xFFFFCE22),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+  ConsumerState<MyApp> createState() => _MyAppState();
+}
 
-      home: LandingScreen(),
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/login': (context) => LoginScreen(),
-        '/home': (context) => HomeScreen(),
-        '/orders': (context) => OrdersScreen(),
-        '/tracker': (context) => OrdersTracking(),
-      },
+class _MyAppState extends ConsumerState<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    final router = ref.watch(goRouter);
+    return ProviderScope(
+      child: MaterialApp.router(
+        routerConfig: router,
+        theme: ThemeData(
+          primaryColor: Color(0xFFFFCE22),
+          useMaterial3: true,
+        ),
+        // routerConfig: _router,
+        // // home: LandingScreen(),
+        debugShowCheckedModeBanner: false,
+        // // routes: {
+        //   '/login': (context) => LoginScreen(),
+        // //   '/home': (context) => HomeScreen(),
+        // //   '/orders': (context) => OrdersScreen(),
+        // //   '/tracker': (context) => OrdersTracking(),
+        // //   '/details': (context) => DetailsScreen(),
+        // },
+      ),
     );
   }
 }

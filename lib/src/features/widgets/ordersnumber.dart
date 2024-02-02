@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
-import '../models/recetorders.dart';
+import '../../core/models/recetorders.dart';
 
 class OrdersNumber extends StatelessWidget {
   const OrdersNumber({
