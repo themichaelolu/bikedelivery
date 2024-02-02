@@ -1,14 +1,20 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../core/models/routes.dart';
+import '../widgets/gorouter_notifier.dart';
 import '../widgets/login_widget.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
+  @override
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController usernameController = TextEditingController();
@@ -30,7 +36,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 100,
               ),
-              Container(
+              SizedBox(
                 height: 100,
                 width: 326,
                 child: TextField(
@@ -44,7 +50,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 5,
               ),
-              Container(
+              SizedBox(
                 height: 100,
                 width: 326,
                 child: TextField(
@@ -68,7 +74,7 @@ class LoginScreen extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  bool _isValidData() {
+                  bool isValidData() {
                     String validUsername = 'michaelolorundare@gmail.com';
                     String validPassword = 'Funkyman';
 
@@ -76,8 +82,8 @@ class LoginScreen extends StatelessWidget {
                         passwordController.text == validPassword;
                   }
 
-                  if (_isValidData()) {
-                    context.pushReplacement('/a');
+                  if (isValidData()) {
+                    ref.read(goRouterNotifierProvider).isLoggedIn = true;
                   } else {
                     showDialog(
                       context: context,
@@ -129,7 +135,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              Container(
+              SizedBox(
                 width: 239,
                 height: 25,
                 child: Stack(

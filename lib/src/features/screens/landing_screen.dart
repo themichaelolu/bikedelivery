@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:project1/src/features/widgets/login_widget.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -71,7 +70,7 @@ class LandingScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               width: 50,
               height: 6,
               child: Stack(
@@ -151,7 +150,7 @@ class LandingScreen extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
-            Container(
+            SizedBox(
               width: 239,
               height: 25,
               child: Stack(

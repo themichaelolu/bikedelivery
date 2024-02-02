@@ -1,13 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:http/http.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '../../core/models/bikepeople.dart';
-import '../../core/models/routes.dart';
 
 class SliderR extends StatefulWidget {
   final BikePeople bikePeople;
@@ -30,8 +26,7 @@ class _SliderRState extends State<SliderR> {
     try {
       return widget.bikePeople;
     } catch (error) {
-      print('Error fetching data: $error');
-      throw error; // Rethrow the error to handle it in the calling function
+      rethrow; // Rethrow the error to handle it in the calling function
     }
   }
 

@@ -11,7 +11,7 @@ class BottomNavBar extends StatelessWidget {
     return BottomAppBar(
       color: Colors.transparent,
       elevation: 0,
-      child: Container(
+      child: SizedBox(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[

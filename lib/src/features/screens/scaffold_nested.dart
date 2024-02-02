@@ -24,49 +24,26 @@ class ScaffoldWithNestedNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: navigationShell,
-      bottomNavigationBar: NavigationBar(
-        indicatorColor: Theme.of(context).primaryColor,
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        iconSize: 25,
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.black,
         backgroundColor: const Color(0xFFF1F6FB),
-        selectedIndex: navigationShell.currentIndex,
-        destinations: const [
-          NavigationDestination(
-            label: 'Home',
-            icon: Image(
-              image: AssetImage(
-                'assets/images/home.png',
-              ),
-              color: Colors.black,
-            ),
-          ),
-          NavigationDestination(
-            label: 'Orders ',
-            icon: Image(
-              image: AssetImage(
-                'assets/images/markey.png',
-              ),
-              color: Colors.black,
-            ),
-          ),
-          NavigationDestination(
-            label: 'Location',
-            icon: Image(
-              image: AssetImage(
-                'assets/images/cart.png',
-              ),
-              color: Colors.black,
-            ),
-          ),
-          NavigationDestination(
-            label: 'Settings',
-            icon: Image(
-              image: AssetImage(
-                'assets/images/heart.png',
-              ),
-              color: Colors.black,
-            ),
-          ),
+        currentIndex: navigationShell.currentIndex,
+        items: const [
+          BottomNavigationBarItem(
+              label: 'Home', icon: Icon(CupertinoIcons.home)),
+          BottomNavigationBarItem(
+              label: 'Orders ', icon: Icon(CupertinoIcons.bookmark)),
+          BottomNavigationBarItem(
+              label: 'Location', icon: Icon(CupertinoIcons.location)),
+          BottomNavigationBarItem(
+              label: 'Settings', icon: Icon(CupertinoIcons.settings)),
         ],
-        onDestinationSelected: _goBranch,
+        onTap: _goBranch,
       ),
     );
   }

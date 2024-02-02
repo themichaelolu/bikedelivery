@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:project1/src/core/models/recetorders.dart';
@@ -14,7 +15,7 @@ class RecentOrders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       width: MediaQuery.of(context).size.width,
       child: Container(
@@ -52,6 +53,7 @@ class RecentOrders extends StatelessWidget {
                 ),
                 title: Text(order.name),
                 subtitle: Text(order.inProcess ? 'In Process' : 'In Delivery'),
+                trailing: Icon(CupertinoIcons.forward),
               ),
             );
           }),

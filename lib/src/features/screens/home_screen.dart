@@ -2,10 +2,8 @@
 
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import 'package:project1/src/features/widgets/drawer_widget.dart';
 import 'package:project1/src/features/widgets/top_widget.dart';
 
@@ -28,7 +26,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<BikePeople> _data = [];
 
-  @riverpod
   Future<List<BikePeople>> getData() async {
     try {
       final response = await get(
@@ -41,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // String title = data['title'];
       // String body = data['bofy'].substring(1, 3);
 
-      print(response.body);
+      // print(response.body);
       if (response.statusCode == 200) {
         List<dynamic> data = json.decode(response.body);
         return data.map((json) => BikePeople.fromJson(json)).toList();
@@ -49,8 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
         throw Exception('Failed to load data');
       }
     } catch (error) {
-      print('Error fetching data: $error');
-      throw error; // Rethrow the error to handle it in the calling function
+      // print('Error fetching data: $error');
+      rethrow; // Rethrow the error to handle it in the calling function
     }
   }
 
@@ -60,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
     _fetchDataFromApi();
   }
 
-  @riverpod
   Future<void> _fetchDataFromApi() async {
     try {
       List<BikePeople> data = await getData();
@@ -69,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     } catch (error) {
       // Handle error more gracefully (e.g., show an error message to the user)
-      print('Error fetching data: $error');
+      // print('Error fetching data: $error');
     }
   }
 
@@ -109,19 +105,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Theme.of(context).primaryColor,
                   ),
                 )
-              : Container(
-                  child: CarouselSlider(
-                    options: CarouselOptions(
-                      aspectRatio: 1.5,
-                      // enlargeCenterPage: true,
-                      enableInfiniteScroll: false,
-                      initialPage: 2,
-                      viewportFraction: 0.7,
-                    ),
-                    items: _data
-                        .map((bikeImages) => SliderR(bikePeople: bikeImages))
-                        .toList(),
+              : CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 1.5,
+                    // enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
+                    initialPage: 2,
+                    viewportFraction: 0.7,
                   ),
+                  items: _data
+                      .map((bikeImages) => SliderR(bikePeople: bikeImages))
+                      .toList(),
                 ),
           SizedBox(
             height: 20,

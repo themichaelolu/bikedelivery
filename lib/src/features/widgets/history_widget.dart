@@ -7,7 +7,7 @@ class HistoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 375,
       height: 708,
       child: Stack(
@@ -15,7 +15,7 @@ class HistoryWidget extends StatelessWidget {
           Positioned(
             left: 24,
             top: 388,
-            child: Container(
+            child: SizedBox(
               width: 327,
               height: 280,
               child: Stack(
@@ -59,7 +59,7 @@ class HistoryWidget extends StatelessWidget {
                   Positioned(
                     left: 0,
                     top: 224,
-                    child: Container(
+                    child: SizedBox(
                       width: 327,
                       height: 56,
                       child: Stack(
@@ -67,7 +67,7 @@ class HistoryWidget extends StatelessWidget {
                           Positioned(
                             left: 72,
                             top: 4,
-                            child: Container(
+                            child: SizedBox(
                               width: 255,
                               height: 49,
                               child: Stack(
@@ -130,7 +130,7 @@ class HistoryWidget extends StatelessWidget {
                           Positioned(
                             left: 0,
                             top: 0,
-                            child: Container(
+                            child: SizedBox(
                               width: 56,
                               height: 56,
                               child: Stack(
@@ -173,7 +173,7 @@ class HistoryWidget extends StatelessWidget {
                   Positioned(
                     left: 0,
                     top: 136,
-                    child: Container(
+                    child: SizedBox(
                       width: 327,
                       height: 56,
                       child: Stack(
@@ -181,7 +181,7 @@ class HistoryWidget extends StatelessWidget {
                           Positioned(
                             left: 72,
                             top: 4,
-                            child: Container(
+                            child: SizedBox(
                               width: 255,
                               height: 49,
                               child: Stack(
@@ -244,7 +244,7 @@ class HistoryWidget extends StatelessWidget {
                           Positioned(
                             left: 0,
                             top: 0,
-                            child: Container(
+                            child: SizedBox(
                               width: 56,
                               height: 56,
                               child: Stack(
@@ -287,7 +287,7 @@ class HistoryWidget extends StatelessWidget {
                   Positioned(
                     left: 0,
                     top: 48,
-                    child: Container(
+                    child: SizedBox(
                       width: 327,
                       height: 56,
                       child: Stack(
@@ -295,7 +295,7 @@ class HistoryWidget extends StatelessWidget {
                           Positioned(
                             left: 72,
                             top: 4,
-                            child: Container(
+                            child: SizedBox(
                               width: 255,
                               height: 49,
                               child: Stack(
@@ -358,7 +358,7 @@ class HistoryWidget extends StatelessWidget {
                           Positioned(
                             left: 0,
                             top: 0,
-                            child: Container(
+                            child: SizedBox(
                               width: 56,
                               height: 56,
                               child: Stack(
@@ -409,7 +409,7 @@ class HistoryWidget extends StatelessWidget {
               transform: Matrix4.identity()
                 ..translate(0.0, 0.0)
                 ..rotateZ(3.14),
-              child: Container(
+              child: SizedBox(
                 width: 24,
                 height: 24,
                 child: Stack(children: []),
@@ -419,7 +419,7 @@ class HistoryWidget extends StatelessWidget {
           Positioned(
             left: 24,
             top: 45,
-            child: Container(
+            child: SizedBox(
               width: 132,
               height: 51,
               child: Stack(
@@ -464,7 +464,7 @@ class HistoryWidget extends StatelessWidget {
           Positioned(
             left: 24,
             top: 126,
-            child: Container(
+            child: SizedBox(
               width: 327,
               height: 238,
               child: Stack(
@@ -486,7 +486,7 @@ class HistoryWidget extends StatelessWidget {
                   Positioned(
                     left: 24,
                     top: 24,
-                    child: Container(
+                    child: SizedBox(
                       width: 207,
                       height: 42,
                       child: Stack(
@@ -531,7 +531,7 @@ class HistoryWidget extends StatelessWidget {
                   Positioned(
                     left: 24,
                     top: 98,
-                    child: Container(
+                    child: SizedBox(
                       width: 77,
                       height: 42,
                       child: Stack(
@@ -576,7 +576,7 @@ class HistoryWidget extends StatelessWidget {
                   Positioned(
                     left: 24,
                     top: 172,
-                    child: Container(
+                    child: SizedBox(
                       width: 119,
                       height: 42,
                       child: Stack(

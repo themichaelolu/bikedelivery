@@ -15,7 +15,7 @@ class DrawerWidget extends StatelessWidget {
           vertical: 10,
         ),
         child: ListView(children: [
-          Container(
+          SizedBox(
             height: 100,
             width: 100,
             child: Row(

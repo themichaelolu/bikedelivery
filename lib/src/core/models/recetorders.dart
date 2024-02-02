@@ -1,43 +1,42 @@
 import 'package:equatable/equatable.dart';
 
-class RecentOrdersModel {
-  String name;
+class RecentOrdersModel extends Equatable {
+  final String name;
 
-  bool inProcess;
+  final bool inProcess;
 
-  RecentOrdersModel({
+  const RecentOrdersModel({
     required this.name,
     required this.inProcess,
   });
 
   static List<RecentOrdersModel> recents = [
-    RecentOrdersModel(
+    const RecentOrdersModel(
       name: 'SCP9374826473',
       inProcess: true,
     ),
-    RecentOrdersModel(
+    const RecentOrdersModel(
       name: 'SCP9374826473',
       inProcess: false,
     ),
-    RecentOrdersModel(
+    const RecentOrdersModel(
       name: 'SCP9374826473',
       inProcess: true,
     ),
-    RecentOrdersModel(
+    const RecentOrdersModel(
       name: 'SCP9374826473',
       inProcess: false,
     ),
-    RecentOrdersModel(
+    const RecentOrdersModel(
       name: 'SCP9374826473',
       inProcess: true,
     ),
-    RecentOrdersModel(
+    const RecentOrdersModel(
       name: 'SCP9374826473',
       inProcess: false,
     ),
   ];
 
-//   @override
-//   // TODO: implement props
-//   List<Object?> get props => [name, inProcess];
+  @override
+  List<Object?> get props => [name, inProcess];
 }
