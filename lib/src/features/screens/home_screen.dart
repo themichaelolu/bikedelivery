@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:project1/src/core/models/bikepeople_network.dart';
 
 import 'package:project1/src/features/widgets/drawer_widget.dart';
 import 'package:project1/src/features/widgets/top_widget.dart';
 
 import '../../core/models/bikepeople.dart';
-import 'package:http/http.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../widgets/slider.dart';
@@ -24,49 +24,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<BikePeople> _data = [];
-
-  Future<List<BikePeople>> getData() async {
-    try {
-      final response = await get(
-        Uri.parse(
-          'https://jsonplaceholder.typicode.com/posts',
-        ),
-      );
-      //   Map data = jsonDecode(response.body);
-
-      // String title = data['title'];
-      // String body = data['bofy'].substring(1, 3);
-
-      // print(response.body);
-      if (response.statusCode == 200) {
-        List<dynamic> data = json.decode(response.body);
-        return data.map((json) => BikePeople.fromJson(json)).toList();
-      } else {
-        throw Exception('Failed to load data');
-      }
-    } catch (error) {
-      // print('Error fetching data: $error');
-      rethrow; // Rethrow the error to handle it in the calling function
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    _fetchDataFromApi();
-  }
-
-  Future<void> _fetchDataFromApi() async {
-    try {
-      List<BikePeople> data = await getData();
-      setState(() {
-        _data = data;
-      });
-    } catch (error) {
-      // Handle error more gracefully (e.g., show an error message to the user)
-      // print('Error fetching data: $error');
-    }
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -99,24 +59,43 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 10,
           ),
-          _data.isEmpty
-              ? Center(
-                  child: CircularProgressIndicator(
-                    color: Theme.of(context).primaryColor,
-                  ),
-                )
-              : CarouselSlider(
-                  options: CarouselOptions(
-                    aspectRatio: 1.5,
-                    // enlargeCenterPage: true,
-                    enableInfiniteScroll: false,
-                    initialPage: 2,
-                    viewportFraction: 0.7,
-                  ),
-                  items: _data
-                      .map((bikeImages) => SliderR(bikePeople: bikeImages))
-                      .toList(),
-                ),
+          Consumer(
+            builder: (context, ref, child) {
+              return ref.watch(getDataProvider).when(
+                    data: (data) {
+                      return data != null
+                          ? data.isEmpty
+                              ? Center(
+                                  child: Text('Empty'),
+                                )
+                              : CarouselSlider(
+                                  options: CarouselOptions(
+                                    aspectRatio: 1.5,
+                                    // enlargeCenterPage: true,
+                                    enableInfiniteScroll: false,
+                                    initialPage: 2,
+                                    viewportFraction: 0.7,
+                                  ),
+                                  items: data
+                                      .map((bikeImages) =>
+                                          SliderR(bikePeople: bikeImages))
+                                      .toList(),
+                                )
+                          : Center(
+                              child: Text('Error on loading data'),
+                            ); 
+                    },
+                    error: (error, stackTrace) {
+                      return Center(
+                        child: Text(error.toString()),
+                      );
+                    },
+                    loading: () => Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+            },
+          ),
           SizedBox(
             height: 20,
           ),
